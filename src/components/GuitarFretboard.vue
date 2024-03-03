@@ -57,8 +57,10 @@ export default defineComponent({
   },
   methods: {
     startGame() {
+      this.major = 'major (dur)'
+      this.minor = 'minor (mol)'
       this.rootNote = this.notes[Math.floor(Math.random() * this.notes.length)];
-      this.scaleType = ['major', 'minor'][Math.floor(Math.random() * 2)];
+      this.scaleType = [this.major, this.minor][Math.floor(Math.random() * 2)];
       this.clickedCells = {};
       this.score = this.getScore();
       this.showFailMessage = false;
@@ -72,7 +74,7 @@ export default defineComponent({
     isScale(string, fret) {
       const note = this.getSoundName(string, fret);
       const rootNoteIndex = this.notes.indexOf(this.rootNote);
-      const scaleIntervals = this.scaleType === 'major' ? this.majorScaleIntervals : this.minorScaleIntervals;
+      const scaleIntervals = this.scaleType === this.major ? this.majorScaleIntervals : this.minorScaleIntervals;
       const scaleNotes = scaleIntervals.map(interval => this.notes[(rootNoteIndex + interval) % 12]);
         return scaleNotes.includes(note);
     },
