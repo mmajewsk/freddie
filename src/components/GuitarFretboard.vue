@@ -42,7 +42,7 @@ export default defineComponent({
   name: 'GuitarFretboard',
   data() {
     return {
-      strings: ['E', 'A', 'D', 'G', 'B', 'E'],
+      strings: ['E', 'B', 'G', 'D', 'A', 'E'],
       frets: Array.from({ length: 13 }, (_, i) => i),
       notes: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
       rootNote: '',
@@ -136,6 +136,10 @@ export default defineComponent({
 }
 .clicked {
   background-color: red;
+}
+
+.first-column {
+  background-color: gray;
 }
 .game-over {
   margin-top: 20px;
